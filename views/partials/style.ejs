@@ -1,0 +1,287 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0px;
+    font-family: "segoe ui";
+    position: relative;
+    background:rgb(223, 209, 209);
+  }
+
+  .container-box {
+    margin: 0 auto;
+    max-width: 1300px;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    min-height: 70vh;
+  }
+
+  .container-box h1 {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .container-box p {
+    font-size: 1.3rem;
+  }
+
+  .nav-title {
+    font-size: 3rem;
+  }
+
+  .nav {
+    height: 100px;
+    width: 100%;
+    background-color: #4d4d4d;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 0 2rem;
+    text-align: left;
+  }
+
+  .nav > .nav-header {
+    display: inline;
+  }
+
+  .nav > .nav-header > .nav-title {
+    display: inline-block;
+    font-size: 2rem;
+    color: #fff;
+    padding: 10px 10px 10px 20px;
+  }
+
+  .nav > .nav-btn {
+    display: none;
+  }
+
+  .nav > .nav-links {
+    display: inline;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .nav > .nav-links > a {
+    display: inline-block;
+    padding: 1rem;
+    text-decoration: none;
+    color: #efefef;
+    font-size: 2rem;
+  }
+
+  .nav > .nav-links > a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .nav > #nav-check {
+    display: none;
+  }
+
+  @media (max-width: 1100px) {
+    .nav {
+      grid-template-columns: 1fr 1fr;
+      text-align: left;
+    }
+    .nav > .nav-btn {
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+    .nav > .nav-btn > label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      padding: 13px;
+    }
+    .nav > .nav-btn > label:hover,
+    .nav #nav-check:checked ~ .nav-btn > label {
+      background-color: rgba(0, 0, 0, 0.3);
+      height: 100px;
+    }
+    .nav > .nav-btn > label > span {
+      display: block;
+      width: 30px;
+      height: 20px;
+      border-top: 2px solid #eee;
+    }
+    .nav > .nav-links {
+      position: absolute;
+      display: block;
+      width: 100%;
+      background-color: #333;
+      height: 0px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 100px;
+      left: 0px;
+    }
+    .nav > .nav-links > a {
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+    .nav > #nav-check:not(:checked) ~ .nav-links {
+      height: 0px;
+    }
+    .nav > #nav-check:checked ~ .nav-links {
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+    }
+  }
+
+  /* 
+================
+footer
+================
+*/
+
+  .footer {
+    background: #3f220e;
+    color: white;
+    z-index: -222;
+  }
+
+  .footer .links ul {
+    list-style-type: none;
+  }
+
+  .footer .links li a {
+    color: white;
+    transition: color 0.2s;
+  }
+
+  .footer .links li a:hover {
+    text-decoration: none;
+    color: #4180cb;
+  }
+
+  .footer .about-company i {
+    font-size: 25px;
+  }
+
+  .footer .about-company a {
+    color: white;
+    transition: color 0.2s;
+  }
+
+  .footer .about-company a:hover {
+    color: #4180cb;
+  }
+
+  .footer .location i {
+    font-size: 18px;
+  }
+
+  .footer .copyright p {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* 
+================
+compose
+================
+*/
+
+  form {
+  }
+
+  form input,
+  textarea {
+    width: 100%;
+    display: block;
+  }
+
+  form input {
+    height: 3rem;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  form label {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  form textarea {
+    font-size: 1rem;
+  }
+
+  form button {
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    background: rgb(11, 73, 111);
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+
+  @media screen and (min-width: 1000px) {
+    form textarea {
+      font-size: 1.4rem;
+    }
+    form input {
+      font-size: 1.4rem;
+    }
+  }
+
+  /* 
+================
+posts
+================
+*/
+
+  .posts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    gap: 3rem;
+    margin: 0 auto;
+  }
+
+  .posts-container h5 {
+    display: inline-block;
+    color: black;
+  }
+
+  .single-post {
+    min-height: 20rem;
+    background: burlywood;
+    border-radius: 1rem;
+    display: block;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgb(170, 91, 91);
+  }
+
+  .single-post h2 {
+    background: rgb(114, 5, 5);
+    padding: 0.8rem;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    color: white;
+    text-decoration: underline;
+    text-decoration: none !important;
+    font-style: normal;
+    height: 7rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .single-post h5 {
+    padding: 0.5rem;
+    text-decoration: none;
+  }
+
+  .post-header {
+   border: 3px solid grey;
+   color: #ce5e13;
+
+  }
+</style>

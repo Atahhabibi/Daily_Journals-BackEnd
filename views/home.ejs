@@ -1,0 +1,20 @@
+<%- include ("partials/header") %>
+
+<div class="container-box">
+  <h1 style="text-align: left; text-decoration: underline; color: darkred">
+    HOME
+  </h1>
+  <p style="margin-bottom:3rem;"><%= content %></p>
+
+
+  <div class="posts-container">
+    <% posts.map(item=>{ %>
+    <a class="single-post" href="/posts/<%= item._id %>">
+      <h2><%= item.title.slice(0,50) %></h2>
+      <h5><%= item.content.slice(0,200) %></h5>
+    </a>
+    <% }) %>
+  </div>
+</div>
+
+<%- include ("partials/footer") %>
