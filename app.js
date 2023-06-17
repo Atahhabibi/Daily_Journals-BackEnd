@@ -2,7 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 var _ = require("lodash");
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://127.0.0.1:27017/DailyJournal");
+mongoose.connect(
+  "mongodb+srv://admin-atah:jan@cluster0.clahmhi.mongodb.net/DailyJournal"
+);
 
 const JournalSchema = new mongoose.Schema({
   title: String,
@@ -25,7 +27,7 @@ app.use(express.static("/public"));
 app.use(bodyParser.urlencoded({ extended: "true" }));
 app.set("view engine", "ejs");
 
-app.listen(3000, (req, res) => {
+app.listen(process.env.PORT||3000, (req, res) => {
   console.log("SERVER LISTENING PORT: 3000");
 });
 
