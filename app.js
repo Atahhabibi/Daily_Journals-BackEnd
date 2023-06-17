@@ -4,7 +4,7 @@ var _ = require("lodash");
 require('dotenv').config();
 const mongoose = require("mongoose");
 mongoose.connect(
-  "mongodb+srv://admin-atah:jan@cluster0.clahmhi.mongodb.net/DailyJournal"
+  process.env.mongodbConnection
 );
 
 const JournalSchema = new mongoose.Schema({
